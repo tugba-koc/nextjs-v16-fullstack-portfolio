@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Post } from './types';
+import Card from '@/components/Card';
 
 export default function Home() {
-  const posts = [
+  const posts: Post[] = [
     {
       slug: 'first-post',
       title: 'My First Post',
@@ -11,6 +13,7 @@ export default function Home() {
                 I am excited to share my thoughts and experiences with you all!`,
     },
   ];
+
   return (
     <main className='min-h-screen bg-indigo-500'>
       {/* HERO SECTION */}
@@ -46,6 +49,13 @@ export default function Home() {
           complex problems and continuously learning new skills to enhance my
           craft.
         </p>
+      </section>
+      {/* RECENT POST SECTION */}
+      <section className='py-16 px-4 text-center max-w-3xl mx-auto'>
+        <h2 className='text-2xl font-bold mb-4'>Recent Posts</h2>
+        {posts?.length > 0 ?
+          posts.map((post) => <Card key={post.slug} {...post} />)
+        : <p className='text-muted-foreground'>No posts available.</p>}
       </section>
     </main>
   );
