@@ -2,8 +2,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
+  const posts = [
+    {
+      slug: 'first-post',
+      title: 'My First Post',
+      content: `# Hello World
+                This is my first blog post written in markdown format.
+                I am excited to share my thoughts and experiences with you all!`,
+    },
+  ];
   return (
-    <main className='min-h-screen bg-amber-200'>
+    <main className='min-h-screen bg-indigo-500'>
       {/* HERO SECTION */}
       <section className='flex flex-col items-center justify-center py-20 px-4 text-center'>
         <h1 className='text-4xl font-bold mb-4'>Hi I am Tugba Koc</h1>
@@ -27,6 +36,16 @@ export default function Home() {
             </Link>
           </button>
         </div>
+      </section>
+      {/* ABOUT ME SECTION */}
+      <section className='py-16 px-4 text-center max-w-3xl mx-auto'>
+        <h2 className='text-2xl font-bold mb-4'>About Me</h2>
+        <p className='text-muted-foreground'>
+          I am a dedicated full-stack developer with experience in building
+          scalable web applications using modern technologies. I love solving
+          complex problems and continuously learning new skills to enhance my
+          craft.
+        </p>
       </section>
     </main>
   );
