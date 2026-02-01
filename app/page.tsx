@@ -1,21 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Post } from '../types';
-import Card from '@/components/Card';
 import { Button } from '@/components/ui/button';
 import CardComponent from '@/components/Card';
+import { ArrowRight } from 'lucide-react';
 
-export default function Home() {
-  const posts: Post[] = [
-    {
-      slug: 'first-post',
-      title: 'My First Post',
-      content: `# Hello World
-                This is my first blog post written in markdown format.
-                I am excited to share my thoughts and experiences with you all!`,
-    },
-  ];
-
+export default async function Home() {
   return (
     <main className='min-h-screen bg-indigo-500'>
       {/* HERO SECTION */}
@@ -55,12 +44,13 @@ export default function Home() {
       {/* RECENT POST SECTION */}
       <section className='py-16 px-4 text-center max-w-3xl mx-auto'>
         <h2 className='text-2xl font-bold mb-4'>Recent Posts</h2>
-        {posts?.length > 0 ? (
-          posts.map((post) => <CardComponent
-           key={post.slug} {...post} />)
-        ) : (
-          <p className='text-muted-foreground'>No posts available.</p>
-        )}
+        
+
+        <Button variant={'link'} asChild className='mt-4 px-0'>
+          <Link href={'blog'}>
+            View all posts <ArrowRight className='w-4 h-4 ml-1' />
+          </Link>
+        </Button>
       </section>
     </main>
   );
