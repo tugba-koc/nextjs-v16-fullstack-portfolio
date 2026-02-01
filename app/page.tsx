@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Post } from './types';
+import { Post } from '../types';
 import Card from '@/components/Card';
 
 export default function Home() {
@@ -53,9 +53,11 @@ export default function Home() {
       {/* RECENT POST SECTION */}
       <section className='py-16 px-4 text-center max-w-3xl mx-auto'>
         <h2 className='text-2xl font-bold mb-4'>Recent Posts</h2>
-        {posts?.length > 0 ?
+        {posts?.length > 0 ? (
           posts.map((post) => <Card key={post.slug} {...post} />)
-        : <p className='text-muted-foreground'>No posts available.</p>}
+        ) : (
+          <p className='text-muted-foreground'>No posts available.</p>
+        )}
       </section>
     </main>
   );
