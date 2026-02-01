@@ -1,11 +1,12 @@
 import { Post } from '@/types';
 import Link from 'next/link';
+import { Card } from './ui/card';
 
-const Card = (props: Post) => {
+const CardComponent = (props: Post) => {
   const { slug, title, content } = props;
 
   return (
-    <div
+    <Card
       key={slug}
       className='hover:bg-blue-200 transition-colors border border-gray-300 rounded-lg mb-6'
     >
@@ -17,8 +18,8 @@ const Card = (props: Post) => {
           </p> */}
         </div>
       </Link>
-    </div>
+    </Card>
   );
 };
 
-export default Card;
+export default CardComponent;

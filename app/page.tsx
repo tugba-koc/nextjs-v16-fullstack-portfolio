@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Post } from '../types';
 import Card from '@/components/Card';
+import { Button } from '@/components/ui/button';
+import CardComponent from '@/components/Card';
 
 export default function Home() {
   const posts: Post[] = [
@@ -23,10 +25,10 @@ export default function Home() {
           A full-stack developer passionate about building web applications.
         </p>
         <div className='flex gap-4'>
-          <button>
+          <Button>
             <Link href='/blog'>Read Blog</Link>
-          </button>
-          <button>
+          </Button>
+          <Button>
             <Link href='/comments'>
               <Image
                 src='/comments-icon.png'
@@ -37,7 +39,7 @@ export default function Home() {
               />
               Contact Me
             </Link>
-          </button>
+          </Button>
         </div>
       </section>
       {/* ABOUT ME SECTION */}
@@ -54,7 +56,8 @@ export default function Home() {
       <section className='py-16 px-4 text-center max-w-3xl mx-auto'>
         <h2 className='text-2xl font-bold mb-4'>Recent Posts</h2>
         {posts?.length > 0 ? (
-          posts.map((post) => <Card key={post.slug} {...post} />)
+          posts.map((post) => <CardComponent
+           key={post.slug} {...post} />)
         ) : (
           <p className='text-muted-foreground'>No posts available.</p>
         )}
