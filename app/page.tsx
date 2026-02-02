@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import CardComponent from '@/components/Card';
+import CardComponent from '@/components/CardComponent';
 import { ArrowRight } from 'lucide-react';
 
 export default async function Home() {
@@ -44,7 +44,6 @@ export default async function Home() {
       {/* RECENT POST SECTION */}
       <section className='py-16 px-4 text-center max-w-3xl mx-auto'>
         <h2 className='text-2xl font-bold mb-4'>Recent Posts</h2>
-        
 
         <Button variant={'link'} asChild className='mt-4 px-0'>
           <Link href={'blog'}>

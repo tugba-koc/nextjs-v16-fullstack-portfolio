@@ -1,4 +1,4 @@
-import CardComponent from '@/components/Card';
+import CardComponent from '@/components/CardComponent';
 import { Button } from '@/components/ui/button';
 import prisma from '@/lib/db';
 import { ArrowLeft } from 'lucide-react';

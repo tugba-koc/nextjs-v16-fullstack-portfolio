@@ -1,8 +1,7 @@
 'use client';
 import { Github, Loader2, LogOut } from 'lucide-react';
 import { Button } from './ui/button';
-import { signIn, useSession } from '@/lib/auth-client';
-import { signOut } from 'better-auth/api';
+import { signIn, signOut, useSession } from '@/lib/auth-client';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
 export default function AuthButton() {

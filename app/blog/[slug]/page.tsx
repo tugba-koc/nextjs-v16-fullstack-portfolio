@@ -1,11 +1,9 @@
-import CardComponent from '@/components/Card';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import { Button } from '@/components/ui/button';
 import prisma from '@/lib/db';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import React from 'react';
 
 const BlogPostPage = async ({
   params,
