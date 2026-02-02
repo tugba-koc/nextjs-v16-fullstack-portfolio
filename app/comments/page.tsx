@@ -1,12 +1,13 @@
+import AuthButton from '@/components/AuthButton';
 import { Button } from '@/components/ui/button';
 import prisma from '@/lib/db';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
 export default async function Comments() {
-  const comments = await prisma.comment.findMany({
-    include: { user: true, orderBy: { createdAt: 'desc' } },
-  });
+  // const comments = await prisma.comment.findMany({
+  //   include: { user: true, orderBy: { createdAt: 'desc' } },
+  // });
   return (
     <main className='min-h-screen py-16 px-4'>
       <div className='max-w-2xl mx-auto'>
@@ -20,9 +21,11 @@ export default async function Comments() {
         <p className='text-muted-foreground mb-8'>
           Sgn in with Github to leave a comment or message
         </p>
+
+        <div className='mb-8'>
+          <AuthButton />
+        </div>
       </div>
     </main>
   );
 }
-
-export default Comments;
