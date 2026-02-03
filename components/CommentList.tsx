@@ -1,5 +1,10 @@
-import { Comment } from '@/lib/generated/prisma/client';
 import { Card, CardContent } from './ui/card';
+type Comment = {
+  id: string;
+  user: {
+    name: string;
+  };
+};
 
 const CommentList = ({ comments }: { comments: Comment[] }) => {
   if (comments.length === 0) {
@@ -13,7 +18,7 @@ const CommentList = ({ comments }: { comments: Comment[] }) => {
         <Card key={comment.id}>
           <CardContent>
             <span className='font-medium text-sm'>
-                {comment.user.name || 'Anonymous'}
+              {comment.user.name || 'Anonymous'}
             </span>
           </CardContent>
         </Card>

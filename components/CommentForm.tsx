@@ -5,11 +5,14 @@ import { Textarea } from './ui/textarea';
 import { useState } from 'react';
 import { Button } from './ui/button';
 import { Loader2, Send } from 'lucide-react';
+import { useSession } from '@/lib/auth-client';
 
 const CommentForm = () => {
   const [content, setContent] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
+
+  const { data: session } = useSession();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,6 +39,10 @@ const CommentForm = () => {
       setIsSubmitting(false);
     }
   };
+
+  if (!session?.user) {
+    return <p>Please sign in with Github to leave a comment</p>;
+  }
 
   return (
     <form onSubmit={handleSubmit} className='flex flex-col gap-3'>
